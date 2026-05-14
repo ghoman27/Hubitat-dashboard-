@@ -1,0 +1,538 @@
+/* NOTE1: I had to do alot of workarounds to be able to use the 'secondary' text at the top of the switch tiles 
+I tried using visibility hidden and the before and after text options, but it seems that that doesn't work  
+with the secondary text. I also had to do a lot of weird positioning things because Chat said that the   
+secondary text block is positioned relative to some other element and it just gets weird. 
+NOTE2: Also for the switch tiles...the default background color of the tile is yellow. I wanted it to
+remain the same color as the others and so I had to add a custom background color using the Hubitat template
+editor that was basically a 128,128,128 gray with probable 60% transparency (slider didn't tell me actual value) */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined'); */
+
+/*----------------------------------Tile 0 Start------------------------------------------*/
+#tile-0 .tile-secondary {
+    color: transparent;
+    position: relative;
+}
+
+#tile-0 .tile-secondary::after {
+    /* NOTE: You can't use spaces or dashes in the 'content' */
+    /* if you do, the content will break into 2 lines */
+    content: "ChargerCV1";
+
+    color: white;
+    position: absolute;
+
+    /* Oddly, using 'left:90%' moves the text to the RIGHT */
+    left: 90%;
+
+    text-align: center;
+}
+
+#tile-0 .tile-title { visibility: hidden; }
+
+#tile-0 .tile-primary {
+    color: transparent;
+}
+
+/* COMMON */
+#tile-0 .tile-primary::before {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 60px;
+    height: 75px;
+
+    margin: 0 auto;
+
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    /* increase background-position to push the icon down */
+    background-position: center 18px;
+
+    font-size: 14px;
+    font-weight: normal;
+
+    /* change line-height to move the start point of the text below the icon up/down */
+    line-height: 130px;
+    
+    /* change 'negative' translateX to move icon left/right */
+    transform: translateX(-25px);
+}
+
+/* ON */
+#tile-0 .tile-primary.on::before {
+    content: "ON";
+    color: #4CC600;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/charge_on_grn.png");
+}
+
+/* OFF */
+#tile-0 .tile-primary.off::before {
+    content: "OFF";
+    color: #ffffff;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/charge_off_wht.png");
+}
+
+
+
+/*----------------------------------Tile 1 Start------------------------------------------*/
+
+#tile-1 .tile-secondary {
+    color: transparent;
+    position: relative;
+}
+
+#tile-1 .tile-secondary::after {
+    /* NOTE: You can't use spaces or dashes in the 'content' */
+    /* if you do, the content will break into 2 lines */
+    content: "ChargerCV2";
+
+    color: white;
+    position: absolute;
+
+    /* Oddly, using 'left:90%' moves the text to the RIGHT */
+    left: 90%;
+
+    text-align: center;
+}
+
+#tile-1 .tile-title { visibility: hidden; }
+
+#tile-1 .tile-primary {
+    color: transparent;
+}
+
+/* COMMON */
+#tile-1 .tile-primary::before {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 60px;
+    height: 75px;
+
+    margin: 0 auto;
+
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    /* increase background-position to push the icon down */
+    background-position: center 18px;
+
+    font-size: 14px;
+    font-weight: normal;
+
+    /* change line-height to move the start point of the text below the icon up/down */
+    line-height: 130px;
+    
+    /* change 'negative' translateX to move icon left/right */
+    transform: translateX(-25px);
+}
+
+/* ON */
+#tile-1 .tile-primary.on::before {
+    content: "ON";
+    color: #4CC600;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/charge_on_grn.png");
+}
+
+/* OFF */
+#tile-1 .tile-primary.off::before {
+    content: "OFF";
+    color: #ffffff;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/charge_off_wht.png");
+}
+
+/*----------------------------------Tile 2 Start------------------------------------------*/
+
+#tile-2 {
+    position: relative;
+}
+
+#tile-2 .tile-primary {
+    padding-top: 40px;
+    visibility: hidden;
+}
+
+/* Add PNG icon */
+#tile-2 .tile-primary::before {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 60px;
+    visibility: visible;
+
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/batt_wht.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    position: absolute;
+    top: 4px;
+    left: 52%;
+    transform: translateX(-50%);
+}
+
+/*----------------------------------Tile 3 Start------------------------------------------*/
+#tile-3 {
+    position: relative;
+}
+
+#tile-3 .tile-primary {
+    padding-top: 40px;
+    visibility: hidden;
+}
+
+/* Add PNG icon */
+#tile-3 .tile-primary::before {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 60px;
+    visibility: visible;
+
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/batt_wht.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    position: absolute;
+    top: 4px;
+    left: 52%;
+    transform: translateX(-50%);
+}
+
+/*----------------------------------Tile 4 Start------------------------------------------*/
+
+#tile-4 .tile-primary:after{
+   font-size: 18px;
+   content: " Volts";
+}
+
+#tile-4 .tile-secondary {visibility: hidden;}
+
+/*----------------------------------Tile 5 Start------------------------------------------*/
+
+#tile-5 .tile-primary:after{
+   font-size: 18px;
+   content: " Volts";
+}
+#tile-5 .tile-secondary {visibility: hidden;}
+
+/*----------------------------------Tile 6 Start------------------------------------------*/
+#tile-6 .tile-primary:after{
+   font-size: 18px;
+   content: " Amps";
+}
+#tile-6 .tile-secondary {visibility: hidden;}
+
+/*----------------------------------Tile 7 Start------------------------------------------*/
+
+#tile-7 .tile-primary:after{
+   font-size: 18px;
+   content: " Amps";
+}
+#tile-7 .tile-secondary {visibility: hidden;}
+
+/*----------------------------------Tile 8 Start------------------------------------------*/
+
+#tile-8 .tile-primary:after{
+   font-size: 18px;
+   content: " °F";
+}
+#tile-8 .tile-secondary {visibility: hidden;}
+
+/*----------------------------------Tile 9 Start------------------------------------------*/
+
+#tile-9 .tile-primary:after{
+   font-size: 18px;
+   content: " °F";
+}
+#tile-9 .tile-secondary {visibility: hidden;}
+
+/*----------------------------------Tile 10 Start------------------------------------------*/
+
+#tile-10 .tile-secondary {
+    color: transparent;
+    position: relative;
+}
+
+#tile-10 .tile-secondary::after {
+    /* NOTE: You can't use spaces or dashes in the 'content' */
+    /* if you do, the content will break into 2 lines */
+    content: "Connection";
+
+    color: white;
+    position: absolute;
+
+    /* Oddly, using 'left:90%' moves the text to the RIGHT */
+    left: 90%;
+
+    text-align: center;
+}
+
+#tile-10 .tile-title { visibility: hidden; }
+
+#tile-10 .tile-primary {
+    color: transparent;
+}
+
+/* COMMON */
+#tile-10 .tile-primary::before {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 60px;
+    height: 75px;
+
+    margin: 0 auto;
+
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    /* increase background-position to push the icon down */
+    background-position: center 18px;
+
+    font-size: 12px;
+    font-weight: normal;
+
+    /* change line-height to move the start point of the text below the icon up/down */
+    line-height: 130px;
+    
+    /* change 'negative' translateX to move icon left/right */
+    transform: translateX(-25px);
+}
+
+/* ON */
+#tile-10 .tile-primary.on::before {
+    content: "Online";
+    color: #ffffff;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/connect_on_grn.png");
+}
+
+/* OFF */
+#tile-10 .tile-primary.off::before {
+    content: "Offline";
+    color: #ffffff;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/connect_off_wht.png");
+}
+
+/*----------------------------------Tile 11 Start------------------------------------------*/
+
+#tile-11 .tile-secondary {
+    color: transparent;
+    position: relative;
+}
+
+#tile-11 .tile-secondary::after {
+    /* NOTE: You can't use spaces or dashes in the 'content' */
+    /* if you do, the content will break into 2 lines */
+    content: "Connection";
+
+    color: white;
+    position: absolute;
+
+    /* Oddly, using 'left:90%' moves the text to the RIGHT */
+    left: 90%;
+
+    text-align: center;
+}
+
+#tile-11 .tile-title { visibility: hidden; }
+
+#tile-11 .tile-primary {
+    color: transparent;
+}
+
+/* COMMON */
+#tile-11 .tile-primary::before {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 60px;
+    height: 75px;
+
+    margin: 0 auto;
+
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    /* increase background-position to push the icon down */
+    background-position: center 18px;
+
+    font-size: 12px;
+    font-weight: normal;
+
+    /* change line-height to move the start point of the text below the icon up/down */
+    line-height: 130px;
+    
+    /* change 'negative' translateX to move icon left/right */
+    transform: translateX(-25px);
+}
+
+/* ON */
+#tile-11 .tile-primary.on::before {
+    content: "Online";
+    color: #ffffff;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/connect_on_grn.png");
+}
+
+/* OFF */
+#tile-11 .tile-primary.off::before {
+    content: "Offline";
+    color: #ffffff;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/connect_off_wht.png");
+}
+/*----------------------------------Tile 12 Start------------------------------------------*/
+#tile-12 .tile-secondary {
+    color: transparent;
+}
+
+#tile-12 .tile-secondary::after {
+    /* NOTE: For some reason, on the Contact Sensor template we can use spaces */
+
+    content: "CV1 Dry Contacts";
+    position: absolute;
+    font-size: 12px;
+    color: white;
+
+
+    /* Oddly, using 'left:XX%' moves the text to the RIGHT */
+    left: 17%;
+
+    text-align: center;
+}
+
+#tile-12 .tile-title { visibility: hidden; }
+
+#tile-12 .tile-primary {
+    color: transparent;
+}
+
+/* COMMON */
+#tile-12 .tile-primary::before {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 130px;
+    height: 75px;
+
+    margin: 0 auto;
+
+    background-size: 65px 30px;
+    background-repeat: no-repeat;
+    /* increase background-position to push the icon down */
+    background-position: center 20px;
+
+    font-size: 13px;
+    font-weight: normal;
+
+    /* change line-height to move the start point of the text below the icon up/down */
+    line-height: 115px;
+    
+    /* change 'negative' translateX to move icon left/right */
+    transform: translateX(-0px);
+}
+
+/* ON */
+#tile-12 .tile-primary.closed::before {
+    content: "ON";
+    color: #ffffff;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/relay_cls_wht.png");
+}
+
+/* OFF */
+#tile-12 .tile-primary.open::before {
+    content: "OFF";
+    color: #ffffff;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/relay_opn_wht.png");
+}
+
+/* this is the battery% indicator...don't need it because these contact sensors are hardwired */
+
+#tile-12 .tile-tertiary {
+    color: transparent;
+}
+
+/*----------------------------------Tile 13 Start------------------------------------------*/
+#tile-13 .tile-secondary {
+    color: transparent;
+}
+
+#tile-13 .tile-secondary::after {
+    /* NOTE: For some reason, on the Contact Sensor template we can use spaces */
+
+    content: "CV2 Dry Contacts";
+    position: absolute;
+    font-size: 12px;
+    color: white;
+
+
+    /* Oddly, using 'left:XX%' moves the text to the RIGHT */
+    left: 17%;
+
+    text-align: center;
+}
+
+#tile-13 .tile-title { visibility: hidden; }
+
+#tile-13 .tile-primary {
+    color: transparent;
+}
+
+/* COMMON */
+#tile-13 .tile-primary::before {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 130px;
+    height: 75px;
+
+    margin: 0 auto;
+
+    background-size: 65px 30px;
+    background-repeat: no-repeat;
+    /* increase background-position to push the icon down */
+    background-position: center 20px;
+
+    font-size: 13px;
+    font-weight: normal;
+
+    /* change line-height to move the start point of the text below the icon up/down */
+    line-height: 115px;
+    
+    /* change 'negative' translateX to move icon left/right */
+    transform: translateX(-0px);
+}
+
+/* ON */
+#tile-13 .tile-primary.closed::before {
+    content: "ON";
+    color: #ffffff;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/relay_cls_wht.png");
+}
+
+/* OFF */
+#tile-13 .tile-primary.open::before {
+    content: "OFF";
+    color: #ffffff;
+    background-image: url("https://raw.githubusercontent.com/ghoman27/Hubitat-dashboard-/main/relay_opn_wht.png");
+}
+
+/* this is the battery% indicator...don't need it because these contact sensors are hardwired */
+
+#tile-13 .tile-tertiary {
+    color: transparent;
+}
