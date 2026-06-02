@@ -7,7 +7,9 @@ NOTE2: Also for the switch tiles...the default background color of the tile is y
 remain the same color as the others and so I had to add a custom background color using the Hubitat template
 editor that was basically a 128,128,128 gray with probable 60% transparency (slider didn't tell me actual value) */
 
+/* import below used if we want to use their icons. I'm currently using my own */
 /* @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined'); */
+
 
 /*----------------------------------Tile 0 Start------------------------------------------*/
 #tile-0 .tile-secondary {
@@ -415,13 +417,13 @@ editor that was basically a 128,128,128 gray with probable 60% transparency (sli
 #tile-12 .tile-secondary::after {
     /* NOTE: You can't use spaces or dashes in the 'content' */
     /* if you do, the content will break into 2 lines */
-    content: "Connection";
+    content: "Monitoring";
 
     color: white;
     position: absolute;
 
-    /* Oddly, using 'left:90%' moves the text to the RIGHT */
-    left: 90%;
+    /* Oddly, using 'left:95%' moves the text to the RIGHT */
+    left: 95%;
 
     text-align: center;
 }
@@ -483,13 +485,13 @@ editor that was basically a 128,128,128 gray with probable 60% transparency (sli
 #tile-13 .tile-secondary::after {
     /* NOTE: You can't use spaces or dashes in the 'content' */
     /* if you do, the content will break into 2 lines */
-    content: "Connection";
+    content: "Monitoring";
 
     color: white;
     position: absolute;
 
-    /* Oddly, using 'left:90%' moves the text to the RIGHT */
-    left: 90%;
+    /* Oddly, using 'left:95%' moves the text to the RIGHT */
+    left: 95%;
 
     text-align: center;
 }
